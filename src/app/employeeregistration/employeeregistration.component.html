@@ -1,0 +1,113 @@
+<!-- <div class="content-wrapper"> -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>User Registration</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add New User</li> -->
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">                        
+                        <form class="pt-4" [formGroup]='registrationForm' (ngSubmit)="onSubmit()">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="lblFirstName">First Name</label>
+                                        <input type="text" formControlName='EmployeeFirstName' class="form-control" placeholder="First Name"  name="EmployeeFirstName"  required>
+                                            <div *ngIf="submitted && onSubmitFunction.EmployeeFirstName.errors" class="invalid-errors">
+                                                <div *ngIf="onSubmitFunction.EmployeeFirstName.errors.required" class="text-danger" >First Name Required</div>
+                                            </div>
+                                             
+                                    </div>
+                                    
+                                    <div class="col-4">
+                                        <label for="lblLastName">Last Name</label>
+                                        <input type="text" formControlName='EmployeeLastName' class="form-control" placeholder="Last Name"  name="EmployeeLastName"  required>
+                                            <div *ngIf="submitted && onSubmitFunction.EmployeeLastName.errors" class="invalid-errors">
+                                                <div *ngIf="onSubmitFunction.EmployeeLastName.errors.required" class="text-danger" >Last Name Required</div>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label for="ContactNumber">Contact Number</label>
+                                        <input type="text"  (keypress)="numericOnly($event)"
+                                        maxlength="10" formControlName='MobileNo' class="form-control" placeholder="Contact Number"  name="MobileNo"  required>
+                                            <div *ngIf="submitted && onSubmitFunction.MobileNo.errors" class="invalid-errors">
+                                                <div *ngIf="onSubmitFunction.MobileNo.errors.required" class="text-danger" >Contact Number Required</div>
+                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="InputEmail1">Email address</label>
+                                        <input type="email" formControlName='EmailAddress' class="form-control" placeholder="Email Address"  name="EmailAddress"  required (keypress)="onEmailChange()">
+                                        <div *ngIf="submitted && onSubmitFunction.EmailAddress.errors" class="invalid-errors">
+                                            <div *ngIf="onSubmitFunction.EmailAddress.errors.required" class="text-danger">Please enter email.</div>
+                                            <!-- <div *ngIf="onSubmitFunction.EmailAddress.errors.email" class="text-danger">Please enter valid email.</div>                                             -->
+                                        </div>
+                                        <div *ngIf="submitted" class="text-danger">{{chkMail}}</div>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label for="InputPassword1">Password</label>
+                                        <input type="password" formControlName='Password' class="form-control" placeholder="password"  name="Password"  required (keypress)="onPasswordChange()">
+                                            <div *ngIf="submitted && onSubmitFunction.Password.errors" class="invalid-errors">
+                                                <div *ngIf="onSubmitFunction.Password.errors.required" class="text-danger" >Password Required</div>
+                                            </div>
+                                            <div *ngIf="submitted" class="text-danger" >{{chkPassword}}</div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="InputConfirmPassword1">Confirm Password</label>
+                                        <input type="password" formControlName='ConfirmPassword' class="form-control" placeholder="Confirm Password"  name="ConfirmPassword"  required (keypress)="onConfirmPasswordChange()">
+                                        <div *ngIf="submitted" class="text-danger">{{chkConfiramPassword}}</div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-1">                                        
+                                            <button type="submit" class="btn btn-primary">Submit</button>                                        
+                                    </div>
+                                <div class="col-1">                                        
+                                        <button type="button" class="btn btn-danger" (click)="ClearData()">Clear</button>                                    
+                                </div>
+                                    <!-- /.col -->
+                                    <div class="col-4">
+                                        <div class="icheck-primary">
+                                        <a href="/login">Back to login page</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- </div> -->
